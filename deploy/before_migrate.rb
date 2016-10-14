@@ -14,7 +14,7 @@ node[:deploy].each do |application, deploy|
   open("#{release_path}/.env", 'w') do |f| 
      require 'yaml'
      node[:deploy][application][:environment_variables].each do |key,value|
-       f.puts "#{key}=#{value.to_s.shellescape}"
+       f.puts "#{key}=#{value}"
      end
   end
 end
